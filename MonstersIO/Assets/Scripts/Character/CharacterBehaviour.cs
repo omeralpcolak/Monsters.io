@@ -4,7 +4,17 @@ using UnityEngine;
 
 public abstract class CharacterBehaviour : MonoBehaviour
 {
-    public abstract void CharacterMove();
+    protected Rigidbody2D rb;
+    protected Animator anim;
+
+
+    public void SetUpComponents(CharacterBehaviour _character)
+    {
+        rb = _character.GetComponent<Rigidbody2D>();
+        anim = _character.GetComponent<Animator>();
+    }
+
+    public abstract void CharacterMovement();
     public abstract void CharacterAttack();
     public abstract void CharacterDeath();
 }

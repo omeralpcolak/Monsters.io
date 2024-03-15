@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PlayerController : CharacterBehaviour
 {
+
+    private FloatingJoystick joystick;
+
+
+    private void Start()
+    {
+        SetUpComponents(this);
+        joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
+    }
+
+
+    private void FixedUpdate()
+    {
+        CharacterMovement();
+    }
+
     public override void CharacterAttack()
     {
         throw new System.NotImplementedException();
@@ -14,8 +30,29 @@ public class PlayerController : CharacterBehaviour
         throw new System.NotImplementedException();
     }
 
-    public override void CharacterMove()
+    public override void CharacterMovement()
     {
-        throw new System.NotImplementedException();
+        Vector2 direction = joystick.Direction;
+
+        rb.velocity = new Vector2(direction.x * 5, direction.y * 5);
+
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); 
+        }
+
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); 
+        }
     }
 }
