@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Joystick
   layers:
   - Default
   - TransparentFX
@@ -41,9 +42,15 @@ TagManager:
   - name: Ground
     uniqueID: 1608108635
     locked: 0
+  - name: GroundObjects
+    uniqueID: 2065632017
+    locked: 0
   - name: Walls
     uniqueID: 1450637949
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3134448523
     locked: 0
