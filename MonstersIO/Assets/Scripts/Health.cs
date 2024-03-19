@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Action<bool, int> listener;
+    public int hp;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int _damage)
     {
-        
+        hp -= _damage;
+        listener?.Invoke(hp <= 0 ? true : false, _damage);
     }
 }

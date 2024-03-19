@@ -7,7 +7,6 @@ public class PlayerController : CharacterBehaviour
 
     private FloatingJoystick joystick;
 
-
     private void Start()
     {
         SetUpComponents(this);
@@ -21,6 +20,11 @@ public class PlayerController : CharacterBehaviour
     }
 
     public override void CharacterAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void CharacterHealthListener(bool _isdead, int _damage)
     {
         throw new System.NotImplementedException();
     }

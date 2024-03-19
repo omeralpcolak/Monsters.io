@@ -9,6 +9,8 @@ public class MainSceneManager : MonoBehaviour
 {
 
     public Button coverButton;
+    public GameObject optionMenu;
+    [HideInInspector]public bool isOptionButtonClicked;
 
     public void CoverButtonOnClick()
     {
@@ -16,5 +18,23 @@ public class MainSceneManager : MonoBehaviour
         {
             coverButton.gameObject.SetActive(false);
         });
+    }
+
+    public void OptionsButtonOnClick()
+    {
+        if (!isOptionButtonClicked)
+        {
+            optionMenu.SetActive(true);
+            optionMenu.GetComponent<CanvasGroup>().DOFade(1f, 0.5f);
+            isOptionButtonClicked = true;
+        }
+        else if (isOptionButtonClicked)
+        {
+            optionMenu.GetComponent<CanvasGroup>().DOFade(0f, 0.5f).OnComplete(delegate
+            {
+                optionMenu.SetActive(false);
+            });
+            isOptionButtonClicked = false;
+        }
     }
 }
