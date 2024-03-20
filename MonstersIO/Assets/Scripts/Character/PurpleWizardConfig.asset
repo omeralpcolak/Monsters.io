@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26e09b80013c4904af5b6f5a5e7d6ba, type: 3}
   m_Name: PurpleWizardConfig
   m_EditorClassIdentifier: 
-  title: 0
-  health: 0
-  movementSpeed: 0
+  title: PurpleWizard
+  hp: 100
+  movementSpeed: 5
   type: 0

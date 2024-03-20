@@ -22,19 +22,14 @@ public class MainSceneManager : MonoBehaviour
 
     public void OptionsButtonOnClick()
     {
-        if (!isOptionButtonClicked)
+        isOptionButtonClicked = !isOptionButtonClicked;
+        float targetAlpha = isOptionButtonClicked ? 1f : 0f;
+
+        optionMenu.SetActive(true);
+        optionMenu.GetComponent<CanvasGroup>().DOFade(targetAlpha, 0.5f).OnComplete(() =>
         {
-            optionMenu.SetActive(true);
-            optionMenu.GetComponent<CanvasGroup>().DOFade(1f, 0.5f);
-            isOptionButtonClicked = true;
-        }
-        else if (isOptionButtonClicked)
-        {
-            optionMenu.GetComponent<CanvasGroup>().DOFade(0f, 0.5f).OnComplete(delegate
-            {
+            if (!isOptionButtonClicked)
                 optionMenu.SetActive(false);
-            });
-            isOptionButtonClicked = false;
-        }
+        });
     }
 }

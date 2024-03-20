@@ -10,12 +10,6 @@ public abstract class CharacterBehaviour : MonoBehaviour
     public CharacterConfig characterConfig;
     public int movementSpeed;
     
-    
-
-    private void Start()
-    {
-        
-    }
 
     public void SetUpComponents(CharacterBehaviour _character)
     {

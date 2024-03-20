@@ -26,7 +26,7 @@ public class PlayerController : CharacterBehaviour
 
     public override void CharacterHealthListener(bool _isdead, int _damage)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void CharacterDeath()
