@@ -18,8 +18,7 @@ public class Npc : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            holdingMenu.SetActive(true);
-            menuCanvasGroup.DOFade(1, .5f);
+            ShowMenu();
         }
     }
 
@@ -27,13 +26,22 @@ public class Npc : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            menuCanvasGroup.DOFade(0f, .5f).OnComplete(delegate
-            {
-                holdingMenu.SetActive(false);
-            });
-
-            
+            HideMenu();
         }
+    }
+
+    private void ShowMenu()
+    {
+        holdingMenu.SetActive(true);
+        menuCanvasGroup.DOFade(1, .5f);
+    }
+
+    private void HideMenu()
+    {
+        menuCanvasGroup.DOFade(0, .5f).OnComplete(() =>
+        {
+            holdingMenu.SetActive(false);
+        });
     }
 
 }

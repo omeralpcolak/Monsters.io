@@ -9,7 +9,14 @@ public abstract class CharacterBehaviour : MonoBehaviour
     protected Health health;
     public CharacterConfig characterConfig;
     public int movementSpeed;
-    
+
+    public GameObject hurtEffect;
+    public GameObject deathEffect;
+
+
+    public abstract void CharacterMovement();
+    public abstract void CharacterAttack();
+    public abstract void CharacterDeath();
 
     public void SetUpComponents(CharacterBehaviour _character)
     {
@@ -22,8 +29,19 @@ public abstract class CharacterBehaviour : MonoBehaviour
         health.listener = CharacterHealthListener;
     }
 
-    public abstract void CharacterHealthListener(bool _isdead, int _damage);
-    public abstract void CharacterMovement();
-    public abstract void CharacterAttack();
-    public abstract void CharacterDeath();
+    public virtual void CharacterHealthListener(bool _isdead, int _damage)
+    {
+        if (!_isdead)
+        {
+            Instantiate(hurtEffect, transform);
+            Debug.Log("Character is taking damage: " + _damage);
+        }
+        else
+        {
+            Instantiate(deathEffect, transform);
+            Destroy(gameObject);
+            Debug.Log("Character is dead");
+        }
+    }
+    
 }
