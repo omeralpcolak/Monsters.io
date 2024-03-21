@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class MainSceneManager : MonoBehaviour
 {
-
     public Button coverButton;
     public GameObject optionMenu;
     [HideInInspector]public bool isOptionButtonClicked;
@@ -31,5 +30,10 @@ public class MainSceneManager : MonoBehaviour
             if (!isOptionButtonClicked)
                 optionMenu.SetActive(false);
         });
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
