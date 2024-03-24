@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5766587622017762272
+--- !u!1 &6690416078611811323
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8397171509217484556}
-  - component: {fileID: -2586387363364069392}
+  - component: {fileID: 1430062285542902663}
+  - component: {fileID: 9022110392686891543}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: ElectricCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8397171509217484556
+--- !u!4 &1430062285542902663
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766587622017762272}
+  m_GameObject: {fileID: 6690416078611811323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,17 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2586387363364069392
+--- !u!114 &9022110392686891543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766587622017762272}
+  m_GameObject: {fileID: 6690416078611811323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140c91a066a244334a54ce367deeca71, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b5090e8eba30416dbe2c0687a223162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cooldown: 0
