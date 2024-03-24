@@ -6,6 +6,7 @@ public class PlayerController : CharacterBehaviour
 {
 
     private FloatingJoystick joystick;
+    public List<Skill> skills;
 
     private void Start()
     {
@@ -16,6 +17,11 @@ public class PlayerController : CharacterBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            skills.ForEach(x => x.Use());
+        }
+
         CharacterMovement();
     }
 
