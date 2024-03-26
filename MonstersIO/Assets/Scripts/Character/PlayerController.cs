@@ -14,14 +14,16 @@ public class PlayerController : CharacterBehaviour
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
     }
 
-
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             skills.ForEach(x => x.Use());
         }
+    }
 
+    private void FixedUpdate()
+    {
         CharacterMovement();
     }
 

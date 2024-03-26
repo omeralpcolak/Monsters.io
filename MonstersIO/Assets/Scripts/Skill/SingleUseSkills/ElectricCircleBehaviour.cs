@@ -6,6 +6,7 @@ public class ElectricCircleBehaviour : SkillBehaviour
 {
     public override void Init(SkillConfig _skillConfig)
     {
+        base.Init(_skillConfig);
         transform.localScale = _skillConfig.size;
     }
 }

@@ -15,4 +15,9 @@ public class SingleUseSkill : Skill
             isCreated = true;
         }
     }
+
+    private void OnEnable()
+    {
+        isCreated = false;
+    }
 }
