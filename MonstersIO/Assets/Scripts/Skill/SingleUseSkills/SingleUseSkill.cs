@@ -7,11 +7,11 @@ public class SingleUseSkill : Skill
 {
     private bool isCreated = false;
 
-    public override void Use()
+    public override void Use(MonoBehaviour _monoBehaviour)
     {
         if(!isCreated)
         {
-            base.Use();
+            base.Use(_monoBehaviour);
             isCreated = true;
         }
     }

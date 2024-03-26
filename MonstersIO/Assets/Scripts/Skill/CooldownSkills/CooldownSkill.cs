@@ -5,8 +5,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Cooldown Skill",menuName ="Skill/CooldownSkill")]
 public class CooldownSkill : Skill
 {
-    public override void Use()
+    private bool isOnCooldown;
+
+    public override void Use(MonoBehaviour _monoBehaviour)
     {
-        base.Use();
+        if (!isOnCooldown)
+        {
+            base.Use(_monoBehaviour);
+            _monoBehaviour.StartCoroutine(HandleCooldown(skillConfig.cooldown));
+        }
+        
+    }
+
+    IEnumerator HandleCooldown(float duration)
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(duration);
+        isOnCooldown = false;
     }
 }
