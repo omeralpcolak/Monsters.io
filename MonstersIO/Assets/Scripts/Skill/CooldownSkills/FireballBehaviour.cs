@@ -5,7 +5,8 @@ using UnityEngine;
 public class FireballBehaviour : SkillBehaviour
 {
     public float cooldown;
-    private Vector2 targetPos;
+    private Transform target;
+    private int speed;
 
     public override void Init(SkillConfig _skillConfig)
     {
@@ -15,16 +16,23 @@ public class FireballBehaviour : SkillBehaviour
 
     private void Start()
     {
-        targetPos = FindNearestEnemy().position;
+        target = FindNearestEnemy().transform;
     }
 
     private void FixedUpdate()
     {
-        
+        if(target != null)
+        {
+            Vector2 direction = (target.position - transform.position).normalized;
+            transform.Translate(direction * Time.deltaTime * speed);
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
 
 
-    private Transform FindNearestEnemy()
+    private GameObject FindNearestEnemy()
     {
         Vector2 currentPos = transform.position;
         GameObject closestEnemy = null;
@@ -43,7 +51,7 @@ public class FireballBehaviour : SkillBehaviour
         }
 
 
-        return closestEnemy.transform;
+        return closestEnemy;
 
     }
 }
