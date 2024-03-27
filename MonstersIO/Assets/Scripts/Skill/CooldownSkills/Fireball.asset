@@ -17,4 +17,4 @@ MonoBehaviour:
     damage: 10
     size: {x: 0, y: 0}
     cooldown: 1
-  skillBehaviour: {fileID: 6306659969522956768, guid: db86730df53dc4b5dafe7187f98a3c94, type: 3}
+  skillBehaviour: {fileID: 3843537222122922973, guid: db86730df53dc4b5dafe7187f98a3c94, type: 3}

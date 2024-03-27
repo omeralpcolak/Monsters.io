@@ -43,5 +43,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
             Debug.Log("Character is dead");
         }
     }
+
     
+
 }

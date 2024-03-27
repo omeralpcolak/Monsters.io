@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Joystick
   - NPC
+  - Enemy
   layers:
   - Default
   - TransparentFX

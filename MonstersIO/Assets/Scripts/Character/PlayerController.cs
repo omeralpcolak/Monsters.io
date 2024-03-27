@@ -16,9 +16,9 @@ public class PlayerController : CharacterBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            skills.ForEach(x => x.Use());
+            skills.ForEach(x => x.Use(this));
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SkillBehaviour : MonoBehaviour
 {
@@ -19,5 +20,18 @@ public class SkillBehaviour : MonoBehaviour
     public virtual void Upgrade()
     {
 
+    }
+
+    public virtual void OnTriggerWithEnemy()
+    {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            OnTriggerWithEnemy();
+        }
     }
 }
