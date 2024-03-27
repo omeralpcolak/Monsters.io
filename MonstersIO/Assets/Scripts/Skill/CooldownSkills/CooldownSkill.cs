@@ -7,11 +7,11 @@ public class CooldownSkill : Skill
 {
     private bool isOnCooldown;
 
-    public override void Use(MonoBehaviour _monoBehaviour)
+    public override void Use(MonoBehaviour _monoBehaviour, Transform spawnPos)
     {
         if (!isOnCooldown)
         {
-            base.Use(_monoBehaviour);
+            base.Use(_monoBehaviour,spawnPos);
             _monoBehaviour.StartCoroutine(HandleCooldown(skillConfig.cooldown));
         }
         

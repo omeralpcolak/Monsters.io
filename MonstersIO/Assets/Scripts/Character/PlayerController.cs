@@ -29,16 +29,7 @@ public class PlayerController : CharacterBehaviour
 
     private Transform SetPos(string posName)
     {
-        int index = 0;
-
-        for(int i = 0; i< spawnPoses.Count; i++)
-        {
-            if(spawnPoses[i].name == posName)
-            {
-                index = i;
-            }
-        }
-
+        int index = spawnPoses.FindIndex(t => t.name == posName);
         return spawnPoses[index];
     }
 
