@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : CharacterBehaviour
 {
 
     private FloatingJoystick joystick;
     public List<Skill> skills;
+    public List<Transform> spawnPoses;
 
     private void Start()
     {
@@ -18,9 +20,28 @@ public class PlayerController : CharacterBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            skills.ForEach(x => x.Use(this));
+            
+            skills.ForEach(x => x.Use(this,SetPos(x.spawnPosName)));
         }
     }
+
+    // I do not know it's the good way to setting right position.
+
+    private Transform SetPos(string posName)
+    {
+        int index = 0;
+
+        for(int i = 0; i< spawnPoses.Count; i++)
+        {
+            if(spawnPoses[i].name == posName)
+            {
+                index = i;
+            }
+        }
+
+        return spawnPoses[index];
+    }
+
 
     private void FixedUpdate()
     {
