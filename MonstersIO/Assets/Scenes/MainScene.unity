@@ -607,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020174502724028633, guid: 499378fa1b3325f418a4969b1fc6506a, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1734,6 +1734,18 @@ PrefabInstance:
       propertyPath: skills.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 60208f03f42d7484693279784be17ce8, type: 2}
+    - target: {fileID: 8075594700454921124, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+      propertyPath: spawnPoses.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075594700454921124, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+      propertyPath: spawnPoses.Array.data[0]
+      value: 
+      objectReference: {fileID: 617761769}
+    - target: {fileID: 8075594700454921124, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+      propertyPath: spawnPoses.Array.data[1]
+      value: 
+      objectReference: {fileID: 617761768}
     - target: {fileID: 8470199446340393555, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -1754,6 +1766,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 112810672}
   m_SourcePrefab: {fileID: 100100000, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+--- !u!4 &617761768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2237610746230719234, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+  m_PrefabInstance: {fileID: 617761767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &617761769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403381259937490122, guid: 8b90bbe9d398849a8a01c422e6267c86, type: 3}
+  m_PrefabInstance: {fileID: 617761767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &649690564
 PrefabInstance:
   m_ObjectHideFlags: 0

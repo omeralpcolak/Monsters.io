@@ -18,3 +18,4 @@ MonoBehaviour:
     size: {x: 0, y: 0}
     cooldown: 0
   skillBehaviour: {fileID: 9022110392686891543, guid: e9359f1fba21748119a48aa67abc549b, type: 3}
+  spawnPosName: Arms

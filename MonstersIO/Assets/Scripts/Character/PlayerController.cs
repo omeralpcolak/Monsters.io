@@ -20,7 +20,6 @@ public class PlayerController : CharacterBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            
             skills.ForEach(x => x.Use(this,SetPos(x.spawnPosName)));
         }
     }
@@ -29,7 +28,7 @@ public class PlayerController : CharacterBehaviour
 
     private Transform SetPos(string posName)
     {
-        int index = spawnPoses.FindIndex(t => t.name == posName);
+        int index = spawnPoses.FindIndex(t => t.name.ToLower() == posName.ToLower());
         return spawnPoses[index];
     }
 
