@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class PlayerController : CharacterBehaviour
 {
@@ -9,11 +10,13 @@ public class PlayerController : CharacterBehaviour
     private FloatingJoystick joystick;
     public List<Skill> skills;
     public List<Transform> spawnPoses;
+    public SpriteRenderer[] renderers;
 
     private void Start()
     {
         SetUpComponents(this);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
+        renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -71,12 +74,20 @@ public class PlayerController : CharacterBehaviour
 
         if (direction.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); 
+            Flip(true);
         }
 
         if (direction.x < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1); 
+            Flip(false);
+        }
+    }
+
+    private void Flip(bool _bool)
+    {
+        foreach(SpriteRenderer renderer in renderers)
+        {
+            renderer.flipX = _bool ? true : false;
         }
     }
 }
