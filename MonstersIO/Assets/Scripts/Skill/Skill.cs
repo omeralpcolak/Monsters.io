@@ -11,7 +11,7 @@ public class Skill : ScriptableObject
 
     public virtual void Use(MonoBehaviour _monoBehaviour, Transform spawnPos)
     {
-        SkillBehaviour skillIns = Instantiate(skillBehaviour,spawnPos.position,Quaternion.identity);
+        SkillBehaviour skillIns = Instantiate(skillBehaviour,spawnPos);
         skillIns.Init(this.skillConfig);
     }
 }

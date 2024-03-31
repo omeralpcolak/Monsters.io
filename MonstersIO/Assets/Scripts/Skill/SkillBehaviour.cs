@@ -34,4 +34,6 @@ public class SkillBehaviour : MonoBehaviour
             OnTriggerWithEnemy();
         }
     }
+
+
 }

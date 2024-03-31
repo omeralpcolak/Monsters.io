@@ -7,6 +7,6 @@ public class SkillConfig
 {
     public string title;
     public int damage;
-    public Vector2 size;
+    public Vector3 size;
     public float cooldown;
 }

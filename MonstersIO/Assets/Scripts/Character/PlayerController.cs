@@ -24,7 +24,7 @@ public class PlayerController : CharacterBehaviour
         }
     }
 
-    // I do not know it's the good way to setting right position.
+    // 
 
     private Transform SetPos(string posName)
     {

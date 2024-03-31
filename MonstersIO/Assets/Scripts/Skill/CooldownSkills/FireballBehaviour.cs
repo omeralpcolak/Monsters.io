@@ -17,6 +17,7 @@ public class FireballBehaviour : SkillBehaviour
     private void Start()
     {
        target = FindNearestEnemy().transform;
+       transform.parent = null;
     }
 
     private void FixedUpdate()
