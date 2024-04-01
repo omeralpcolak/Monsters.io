@@ -10,13 +10,13 @@ public class PlayerController : CharacterBehaviour
     private FloatingJoystick joystick;
     public List<Skill> skills;
     public List<Transform> spawnPoses;
-    public SpriteRenderer[] renderers;
+    //public SpriteRenderer[] renderers;
 
     private void Start()
     {
         SetUpComponents(this);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
-        renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        //renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -26,8 +26,6 @@ public class PlayerController : CharacterBehaviour
             skills.ForEach(x => x.Use(this,SetPos(x.spawnPosName)));
         }
     }
-
-    // 
 
     private Transform SetPos(string posName)
     {
@@ -85,9 +83,12 @@ public class PlayerController : CharacterBehaviour
 
     private void Flip(bool _bool)
     {
-        foreach(SpriteRenderer renderer in renderers)
+        /*foreach(SpriteRenderer renderer in renderers)
         {
             renderer.flipX = _bool ? true : false;
-        }
+        }*/
+
+        transform.localScale = _bool ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+
     }
 }

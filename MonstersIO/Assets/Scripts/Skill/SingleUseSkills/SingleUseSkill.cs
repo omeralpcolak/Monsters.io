@@ -11,7 +11,8 @@ public class SingleUseSkill : Skill
     {
         if(!isCreated)
         {
-            base.Use(_monoBehaviour,spawnPos);
+            SkillBehaviour skillIns = Instantiate(skillBehaviour, spawnPos);
+            skillIns.Init(this.skillConfig);
             isCreated = true;
         }
     }

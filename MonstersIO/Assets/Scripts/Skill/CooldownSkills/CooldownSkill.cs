@@ -11,7 +11,8 @@ public class CooldownSkill : Skill
     {
         if (!isOnCooldown)
         {
-            base.Use(_monoBehaviour,spawnPos);
+            SkillBehaviour skillIns = Instantiate(skillBehaviour, spawnPos.position,Quaternion.identity);
+            skillIns.Init(this.skillConfig);
             _monoBehaviour.StartCoroutine(HandleCooldown(skillConfig.cooldown));
         }
         
