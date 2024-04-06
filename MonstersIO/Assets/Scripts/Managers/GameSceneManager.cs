@@ -8,10 +8,13 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager instance;
     public GameState State;
     public static Action<GameState> OnGameStateChange;
+    public GameObject player;
 
     private void Start()
     {
         instance = this;
+        Instantiate(player);
+        CameraManager.instance.SetUpFollow();
     }
 
 

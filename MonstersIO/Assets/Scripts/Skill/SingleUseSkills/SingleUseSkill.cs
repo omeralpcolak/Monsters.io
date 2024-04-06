@@ -6,6 +6,7 @@ using UnityEngine;
 public class SingleUseSkill : Skill
 {
     private bool isCreated = false;
+    
 
     public override void Use(MonoBehaviour _monoBehaviour, Transform spawnPos)
     {
