@@ -7,7 +7,6 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
     public CinemachineVirtualCamera cinemachine;
-    public CinemachineCameraOffset cameraOffset;
     private Transform player;
 
     private void Start()
@@ -22,18 +21,15 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (player)
-        {
-            LimitingCameraPos();
-        }
+        LimitingCameraPos();
     }
 
-    private void LimitingCameraPos()
+    public void LimitingCameraPos()
     {
         float x = player.position.x;
         float y = player.position.y;
 
-        if (Mathf.Abs(x) > 18 || Mathf.Abs(y) > 18)
+        if (Mathf.Abs(x) > 20 || Mathf.Abs(y) > 16)
         {
             cinemachine.Follow = null;
         }
@@ -41,6 +37,5 @@ public class CameraManager : MonoBehaviour
         {
             cinemachine.Follow = player;
         }
-
     }
 }

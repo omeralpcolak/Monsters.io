@@ -10,13 +10,11 @@ public class PlayerController : CharacterBehaviour
     private FloatingJoystick joystick;
     public List<Skill> skills;
     public List<Transform> spawnPoses;
-    //public SpriteRenderer[] renderers;
 
     private void Start()
     {
         SetUpComponents(this);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
-        //renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -70,25 +68,11 @@ public class PlayerController : CharacterBehaviour
             anim.SetBool("isMoving", false);
         }
 
-        if (direction.x > 0)
-        {
-            Flip(true);
-        }
-
-        if (direction.x < 0)
-        {
-            Flip(false);
-        }
+        Flip(direction.x > 0 ? true : false);
     }
 
     private void Flip(bool _bool)
     {
-        /*foreach(SpriteRenderer renderer in renderers)
-        {
-            renderer.flipX = _bool ? true : false;
-        }*/
-
         transform.localScale = _bool ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
-
     }
 }
