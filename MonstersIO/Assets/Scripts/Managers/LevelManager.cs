@@ -7,8 +7,9 @@ using System.Linq;
 public class EnemyGroup
 {
     public EnemyController enemyPrefab;
-    public float cooldown; // duration between each instantiating
-    public float totalDuration;
+    public float cooldown;
+    public float totalCount;
+    public int currentCount;
 
     public void Spawn(Transform _transform)
     {
@@ -24,20 +25,25 @@ public class EnemyBase
     public int groupIndex;
     public EnemyGroup CurrentEnemyGroup => enemyGroups[groupIndex];
 
+    
     public IEnumerator Check()
     {
-        while (0 < CurrentEnemyGroup.totalDuration)
+        while (0 < CurrentEnemyGroup.totalCount)
         {
-            CurrentEnemyGroup.totalDuration -= 1;
-            CurrentEnemyGroup.Spawn(enemyBasePrefab/*this is a transform*/);
-            yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
+           CurrentEnemyGroup.currentCount++;
+           CurrentEnemyGroup.Spawn(enemyBasePrefab);
+           yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
 
-            if(CurrentEnemyGroup.totalDuration == 0)
-            {
-                groupIndex = (CurrentEnemyGroup == enemyGroups.Last()) ? 0 : groupIndex + 1;
-            }
+           if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
+           {
+               CurrentEnemyGroup.currentCount = 0;
+               groupIndex = (CurrentEnemyGroup == enemyGroups.Last()) ? 0 : groupIndex + 1;
+           }
         }
+
+
     }
+    
 }
 
 public class LevelManager : MonoBehaviour
