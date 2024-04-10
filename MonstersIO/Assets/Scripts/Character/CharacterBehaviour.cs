@@ -29,6 +29,11 @@ public abstract class CharacterBehaviour : MonoBehaviour
         health.listener = CharacterHealthListener;
     }
 
+    public void Flip(bool _bool)
+    {
+        transform.localScale = _bool ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+    }
+
     public virtual void CharacterHealthListener(bool _isdead, int _damage)
     {
         if (!_isdead)
@@ -43,7 +48,4 @@ public abstract class CharacterBehaviour : MonoBehaviour
             Debug.Log("Character is dead");
         }
     }
-
-    
-
 }

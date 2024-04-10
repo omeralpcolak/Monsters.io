@@ -57,7 +57,7 @@ public class PlayerController : CharacterBehaviour
     {
         Vector2 direction = joystick.Direction;
 
-        rb.velocity = new Vector2(direction.x * 5, direction.y * 5);
+        rb.velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
 
         if(rb.velocity != Vector2.zero)
         {
@@ -71,8 +71,5 @@ public class PlayerController : CharacterBehaviour
         Flip(direction.x > 0 ? true : false);
     }
 
-    private void Flip(bool _bool)
-    {
-        transform.localScale = _bool ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
-    }
+    
 }

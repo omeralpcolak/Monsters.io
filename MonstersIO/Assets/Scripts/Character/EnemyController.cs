@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : CharacterBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    Transform player;
+
+    private void Start()
     {
-        
+        SetUpComponents(this);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if(player = null)
+        {
+            return;
+        }
+        CharacterMovement();
+    }
+
+    public override void CharacterAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void CharacterDeath()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void CharacterMovement()
+    {
+        Vector2 direction = (player.position - transform.position).normalized;
+        transform.Translate(direction * movementSpeed * Time.deltaTime);
+
+        Flip(direction.x > 0 ? true : false);
     }
 }

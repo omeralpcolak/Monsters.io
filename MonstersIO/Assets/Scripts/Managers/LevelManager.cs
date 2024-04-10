@@ -40,8 +40,6 @@ public class EnemyBase
                groupIndex = (CurrentEnemyGroup == enemyGroups.Last()) ? 0 : groupIndex + 1;
            }
         }
-
-
     }
     
 }
