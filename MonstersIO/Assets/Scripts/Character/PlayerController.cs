@@ -45,12 +45,8 @@ public class PlayerController : CharacterBehaviour
 
     public override void CharacterHealthListener(bool _isdead, int _damage)
     {
+        
         base.CharacterHealthListener(_isdead, _damage);
-    }
-
-    public override void CharacterDeath()
-    {
-        throw new System.NotImplementedException();
     }
 
     public override void CharacterMovement()
@@ -71,5 +67,4 @@ public class PlayerController : CharacterBehaviour
         Flip(direction.x > 0 ? true : false);
     }
 
-    
 }

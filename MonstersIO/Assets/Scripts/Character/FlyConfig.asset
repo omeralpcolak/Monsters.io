@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Fly
   hp: 50
-  movementSpeed: 5
+  movementSpeed: 2
   type: 1

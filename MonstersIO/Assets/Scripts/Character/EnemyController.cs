@@ -16,15 +16,13 @@ public class EnemyController : CharacterBehaviour
 
     private void FixedUpdate()
     {
-        CharacterMovement();
+        if (player)
+        {
+            CharacterMovement();
+        }
     }
 
     public override void CharacterAttack()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void CharacterDeath()
     {
         throw new System.NotImplementedException();
     }
@@ -35,5 +33,14 @@ public class EnemyController : CharacterBehaviour
         transform.Translate(direction * movementSpeed * Time.fixedDeltaTime);
 
         Flip(direction.x > 0 ? true : false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<Health>().TakeDamage(10);
+            SelfDestruction();
+        }
     }
 }
