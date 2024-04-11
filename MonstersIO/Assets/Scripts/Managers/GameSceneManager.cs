@@ -13,7 +13,7 @@ public class GameSceneManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-        Instantiate(player);
+        //Instantiate(player);
         CameraManager.instance.SetUpFollow();
     }
 

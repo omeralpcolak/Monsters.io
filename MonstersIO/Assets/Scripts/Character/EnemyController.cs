@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : CharacterBehaviour
 {
 
-    Transform player;
+    public Transform player;
 
     private void Start()
     {
@@ -16,10 +16,6 @@ public class EnemyController : CharacterBehaviour
 
     private void FixedUpdate()
     {
-        if(player = null)
-        {
-            return;
-        }
         CharacterMovement();
     }
 
@@ -36,7 +32,7 @@ public class EnemyController : CharacterBehaviour
     public override void CharacterMovement()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        transform.Translate(direction * movementSpeed * Time.deltaTime);
+        transform.Translate(direction * movementSpeed * Time.fixedDeltaTime);
 
         Flip(direction.x > 0 ? true : false);
     }

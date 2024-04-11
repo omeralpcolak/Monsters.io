@@ -31,7 +31,8 @@ public abstract class CharacterBehaviour : MonoBehaviour
 
     public void Flip(bool _bool)
     {
-        transform.localScale = _bool ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+        float xScale = _bool ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x);
+        transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
     }
 
     public virtual void CharacterHealthListener(bool _isdead, int _damage)
