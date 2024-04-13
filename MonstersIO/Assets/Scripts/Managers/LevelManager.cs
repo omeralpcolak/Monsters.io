@@ -34,11 +34,11 @@ public class EnemyBase
            CurrentEnemyGroup.Spawn(enemyBasePrefab);
            yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
 
-           if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
+           /*if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
            {
                CurrentEnemyGroup.currentCount = 0;
                groupIndex = (CurrentEnemyGroup == enemyGroups.Last()) ? 0 : groupIndex + 1;
-           }
+           }*/
         }
     }
     

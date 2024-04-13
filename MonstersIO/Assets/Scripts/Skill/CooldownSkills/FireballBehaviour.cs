@@ -16,8 +16,8 @@ public class FireballBehaviour : SkillBehaviour
 
     private void Start()
     {
-       target = FindNearestEnemy().transform;
-       transform.parent = null;
+        transform.parent = null;
+        target = FindNearestEnemy().transform;
     }
 
     private void FixedUpdate()
@@ -30,21 +30,21 @@ public class FireballBehaviour : SkillBehaviour
     {
         if (target != null)
         {
-            Vector2 direction = (target.position - transform.position).normalized;
-            transform.Translate(direction * Time.deltaTime * speed);
+            Vector2 direction = (target.position - transform.position).normalized; 
+            transform.Translate(-direction * Time.deltaTime * speed);
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
         else
         {
-            return;
+            //return;
         }
     }
 
-    public override void OnTriggerWithEnemy()
+    public override void OnTriggerWithEnemy(Collider2D other)
     {
-        //Instantiate some effect etc..
+        other.GetComponent<Health>().TakeDamage(damage);
         Debug.Log(name + "is triggered with enemy");
         Destroy(gameObject);
     }

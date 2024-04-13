@@ -157,8 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterConfig: {fileID: 11400000, guid: 15ca34944c5ff42ec98eeeab7d4b5aa5, type: 2}
   movementSpeed: 0
-  hurtEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  hurtEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
+  deathEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
   player: {fileID: 0}
 --- !u!114 &3922310729351732452
 MonoBehaviour:

@@ -10,10 +10,13 @@ public class PlayerController : CharacterBehaviour
     private FloatingJoystick joystick;
     public List<Skill> skills;
     public List<Transform> spawnPoses;
+    public Slider healthbar;
 
     private void Start()
     {
         SetUpComponents(this);
+        healthbar = GameObject.FindGameObjectWithTag("Healthbar").GetComponent<Slider>();
+        SetHealthbar(health.hp);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
     }
 
@@ -37,6 +40,17 @@ public class PlayerController : CharacterBehaviour
         CharacterMovement();
     }
 
+    private void SetHealthbar(int amount)
+    {
+        healthbar.maxValue = amount;
+        healthbar.value = amount;
+    }
+
+    private void UpdateHealthbar(int amount)
+    {
+        healthbar.value = amount;
+    }
+
     public override void CharacterAttack()
     {
         throw new System.NotImplementedException();
@@ -45,8 +59,8 @@ public class PlayerController : CharacterBehaviour
 
     public override void CharacterHealthListener(bool _isdead, int _damage)
     {
-        
         base.CharacterHealthListener(_isdead, _damage);
+        UpdateHealthbar(health.hp);
     }
 
     public override void CharacterMovement()

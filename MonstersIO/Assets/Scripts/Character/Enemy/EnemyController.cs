@@ -40,7 +40,7 @@ public class EnemyController : CharacterBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<Health>().TakeDamage(10);
-            SelfDestruction();
+            health.TakeDamage(health.hp);
         }
     }
 }

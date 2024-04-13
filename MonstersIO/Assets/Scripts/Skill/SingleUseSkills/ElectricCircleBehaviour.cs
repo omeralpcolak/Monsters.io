@@ -20,14 +20,17 @@ public class ElectricCircleBehaviour : SkillBehaviour
         }
     }
 
-    public override void OnTriggerWithEnemy()
+    public override void OnTriggerWithEnemy(Collider2D other)
     {
         isTouchingToEnemy = true;
         StartCoroutine(Damage());
+
+
         IEnumerator Damage()
         {
             while (isTouchingToEnemy)
             {
+                other.GetComponent<Health>().TakeDamage(damage);
                 yield return new WaitForSeconds(1f);
                 Debug.Log("damage is applied");
             }

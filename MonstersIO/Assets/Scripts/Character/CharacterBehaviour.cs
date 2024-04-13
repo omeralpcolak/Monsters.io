@@ -28,7 +28,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
         health.listener = CharacterHealthListener;
     }
 
-    public void Flip(bool _bool)
+    protected void Flip(bool _bool)
     {
         float xScale = _bool ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x);
         transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
@@ -39,13 +39,13 @@ public abstract class CharacterBehaviour : MonoBehaviour
         if (!_isdead)
         {
             Instantiate(hurtEffect, transform);
-            Debug.Log("Character is taking damage: " + _damage);
+            Debug.Log(name  + "is taking damage: " + _damage);
         }
         else
         {
             Instantiate(deathEffect, transform);
             Destroy(gameObject);
-            Debug.Log("Character is dead");
+            Debug.Log(name + " is dead!");
         }
     }
 

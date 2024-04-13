@@ -22,7 +22,7 @@ public class SkillBehaviour : MonoBehaviour
 
     }
 
-    public virtual void OnTriggerWithEnemy()
+    public virtual void OnTriggerWithEnemy(Collider2D other)
     {
 
     }
@@ -31,7 +31,8 @@ public class SkillBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            OnTriggerWithEnemy();
+
+            OnTriggerWithEnemy(other);
         }
     }
 
