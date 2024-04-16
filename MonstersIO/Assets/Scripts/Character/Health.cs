@@ -15,5 +15,5 @@ public class Health : MonoBehaviour
         listener?.Invoke(hp <= 0 ? true : false, _damage);
     }
 
-   
+    
 }

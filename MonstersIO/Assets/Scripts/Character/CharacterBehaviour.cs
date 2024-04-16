@@ -6,7 +6,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected Animator anim;
-    protected Health health;
+    public Health health;
     public CharacterConfig characterConfig;
     public int movementSpeed;
 

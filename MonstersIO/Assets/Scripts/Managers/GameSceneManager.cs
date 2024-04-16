@@ -7,41 +7,97 @@ public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager instance;
     public GameState State;
-    public static Action<GameState> OnGameStateChange;
-    public GameObject player;
+    [SerializeField]private bool _gameStart;
+    public bool GameStart
+    {
+        get { return _gameStart; }
+    }
+    //public static Action<GameState> OnGameStateChange;
+    public PlayerController player;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
-        //Instantiate(player);
-        CameraManager.instance.SetUpFollow();
+        ChangeGameState(GameState.START);
     }
 
-
+    
     public void ChangeGameState(GameState newState)
     {
         State = newState;
         switch (newState)
         {
-            case GameState.PlAYING:
+            case GameState.START:
+                Starting();
+                break;
+            case GameState.PLAYING:
+                Playing();
                 break;
             case GameState.WIN:
+                Complete(true);
                 break;
             case GameState.LOSE:
+                Complete(false);
                 break;
             case GameState.PAUSE:
+                Pause();
                 break;
         }
 
-        OnGameStateChange?.Invoke(newState);
+
+        Debug.Log(newState);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ChangeGameState(GameState.LOSE);
+        }
+    }
+
+    private void Starting()
+    {
+        PlayerController player = Instantiate(this.player);
+        //CameraManager.instance.Follow(player);
+        _gameStart = true;
+    }
+    private void Playing()
+    {
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    private void Complete(bool _bool)
+    {
+        _gameStart = false;
+
+        if (_bool)
+        {
+            // WIN!!
+        }
+
+        if (!_bool)
+        {
+            // LOSE!!
+        }
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0;
     }
 
 }
 
+
 public enum GameState
 {
+    START,
     PAUSE,
     LOSE,
     WIN,
-    PlAYING
+    PLAYING
 }

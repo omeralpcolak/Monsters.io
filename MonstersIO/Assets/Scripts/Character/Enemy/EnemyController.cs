@@ -20,6 +20,10 @@ public class EnemyController : CharacterBehaviour
         {
             CharacterMovement();
         }
+        else
+        {
+            SelfDestruction();
+        }
     }
 
     public override void CharacterAttack()

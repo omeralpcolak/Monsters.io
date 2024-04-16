@@ -28,7 +28,7 @@ public class EnemyBase
     
     public IEnumerator Check()
     {
-        while (0 < CurrentEnemyGroup.totalCount)
+        while (0 < CurrentEnemyGroup.totalCount && GameSceneManager.instance.GameStart)
         {
            CurrentEnemyGroup.currentCount++;
            CurrentEnemyGroup.Spawn(enemyBasePrefab);
@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
     public List<EnemyBase> enemyBases;
 
 
-    private void Start()
+    void Start()
     {
         enemyBases.ForEach(x => StartCoroutine(x.Check()));
     }

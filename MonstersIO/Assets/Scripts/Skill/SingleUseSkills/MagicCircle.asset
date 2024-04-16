@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillConfig:
     title: MagicCircle
-    damage: 20
+    damage: 2
     size: {x: 2.5, y: 2.5, z: 2.5}
     cooldown: 0
   skillBehaviour: {fileID: 9152930212034052901, guid: 4aeb666c0bc514558975efe448e22d0e, type: 3}

@@ -31,7 +31,7 @@ public class ElectricCircleBehaviour : SkillBehaviour
             while (isTouchingToEnemy)
             {
                 other.GetComponent<Health>().TakeDamage(damage);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 Debug.Log("damage is applied");
             }
         }

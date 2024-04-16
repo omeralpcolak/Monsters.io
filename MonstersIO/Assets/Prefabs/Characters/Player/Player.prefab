@@ -273,17 +273,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54fb67511dbe43928e964d629266f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   characterConfig: {fileID: 11400000, guid: 8db9dea7de7d940a59ddd356b72c412d, type: 2}
   movementSpeed: 0
-  hurtEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  hurtEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
+  deathEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
   skills:
   - {fileID: 11400000, guid: 6a40effb9cf8d4430ac37077364b4f58, type: 2}
-  - {fileID: 11400000, guid: 60208f03f42d7484693279784be17ce8, type: 2}
   spawnPoses:
   - {fileID: 403381259937490122}
   - {fileID: 2237610746230719234}
   - {fileID: 1066641561580630791}
+  healthbarPrefab: {fileID: 8725483811975424207, guid: c46f2154c07fe43979c5205335928542, type: 3}
+  healthbar: {fileID: 0}
 --- !u!50 &8470199446340393555
 Rigidbody2D:
   serializedVersion: 4

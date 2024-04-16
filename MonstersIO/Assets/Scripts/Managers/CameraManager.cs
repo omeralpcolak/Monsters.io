@@ -7,19 +7,19 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
     public CinemachineVirtualCamera cinemachine;
-    private Transform player;
+    //private Transform player;
 
     private void Start()
     {
         instance = this;        
     }
 
-    public void SetUpFollow()
+    public void Follow(PlayerController _player)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        cinemachine.Follow = _player.transform;
     }
 
-    private void Update()
+    /*private void Update()
     {
         LimitingCameraPos();
     }
@@ -37,5 +37,5 @@ public class CameraManager : MonoBehaviour
         {
             cinemachine.Follow = player;
         }
-    }
+    }*/
 }
