@@ -7,16 +7,17 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
     public CinemachineVirtualCamera cinemachine;
-    //private Transform player;
+    private Transform player;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;        
     }
 
     public void Follow(PlayerController _player)
     {
-        cinemachine.Follow = _player.transform;
+        player = _player.transform;
+        cinemachine.Follow = player.transform;
     }
 
     /*private void Update()

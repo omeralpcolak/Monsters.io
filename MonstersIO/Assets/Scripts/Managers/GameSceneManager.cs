@@ -14,6 +14,7 @@ public class GameSceneManager : MonoBehaviour
     }
     //public static Action<GameState> OnGameStateChange;
     public PlayerController player;
+    public PlayerController playerPrefab;
 
     private void Awake()
     {
@@ -58,8 +59,8 @@ public class GameSceneManager : MonoBehaviour
 
     private void Starting()
     {
-        PlayerController player = Instantiate(this.player);
-        //CameraManager.instance.Follow(player);
+        player = Instantiate(playerPrefab);
+        CameraManager.instance.Follow(player);
         _gameStart = true;
     }
     private void Playing()
