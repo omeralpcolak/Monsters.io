@@ -18,8 +18,6 @@ public class PlayerController : CharacterBehaviour
         SetUpComponents(this);
         healthbar = Instantiate(healthbarPrefab,transform);
         healthbar.Init(this);
-        healthbar.SetMaxHealth(health.hp);
-        healthbar.UpdateHealthbar(health.hp);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
     }
 
@@ -41,7 +39,7 @@ public class PlayerController : CharacterBehaviour
     private void FixedUpdate()
     {
         CharacterMovement();
-        healthbar.transform.position = transform.position + healthbar.offset;
+        //healthbar.transform.position = transform.position + healthbar.offset;
     }
 
 
@@ -75,4 +73,9 @@ public class PlayerController : CharacterBehaviour
         Flip(direction.x > 0 ? true : false);
     }
 
+
+    private void OnDestroy()
+    {
+        Destroy(healthbar.gameObject);
+    }
 }
