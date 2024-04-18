@@ -8,6 +8,7 @@ public class EnemyController : CharacterBehaviour
 
     public Transform player;
     [HideInInspector] public EnemyBase enemyBase;
+    [HideInInspector] public EnemyGroup enemyGroup;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class EnemyController : CharacterBehaviour
         {
             other.GetComponent<Health>().TakeDamage(10);
             health.TakeDamage(health.hp);
+            enemyGroup.totalCount--;
+            enemyBase.CheckHealth();
         }
     }
 }

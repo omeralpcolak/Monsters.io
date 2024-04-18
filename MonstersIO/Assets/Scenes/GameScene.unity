@@ -94696,11 +94696,11 @@ MonoBehaviour:
   - enemyGroups:
     - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
       cooldown: 1
-      totalCount: 5
+      totalCount: 10
       currentCount: 0
     - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
       cooldown: 0.5
-      totalCount: 4
+      totalCount: 10
       currentCount: 0
     enemyBasePrefab: {fileID: 1215670058}
     groupIndex: 0
