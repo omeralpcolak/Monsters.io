@@ -8,12 +8,18 @@ public class EnemyGroup
 {
     public EnemyController enemyPrefab;
     public float cooldown;
-    public float totalCount;
+    public int totalCount;
     public int currentCount;
 
-    public void Spawn(Transform _transform)
+    public void Spawn(Transform _transform, EnemyBase enemyBase)
     {
         var enemy = GameObject.Instantiate(enemyPrefab,_transform.position,Quaternion.identity);
+        enemy.enemyBase = Owner(enemyBase);
+    }
+
+    private EnemyBase Owner(EnemyBase enemyBase)
+    {
+        return enemyBase;
     }
 }
 
@@ -24,15 +30,16 @@ public class EnemyBase
     public Transform enemyBasePrefab;
     public int groupIndex;
     public EnemyGroup CurrentEnemyGroup => enemyGroups[groupIndex];
+    public int Health => enemyGroups.Sum(x => x.totalCount);
 
     
     public IEnumerator Check()
     {
         while (0 < CurrentEnemyGroup.totalCount && GameSceneManager.instance.GameStart)
         {
-           CurrentEnemyGroup.currentCount++;
-           CurrentEnemyGroup.Spawn(enemyBasePrefab);
-           yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
+            CurrentEnemyGroup.Spawn(enemyBasePrefab,this);
+            CurrentEnemyGroup.currentCount++;
+            yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
 
            /*if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
            {

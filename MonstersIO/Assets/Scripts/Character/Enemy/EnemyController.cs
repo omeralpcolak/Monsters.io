@@ -7,6 +7,7 @@ public class EnemyController : CharacterBehaviour
 {
 
     public Transform player;
+    [HideInInspector] public EnemyBase enemyBase;
 
     private void Start()
     {
