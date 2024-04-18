@@ -36,7 +36,7 @@ public class EnemyController : CharacterBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         transform.Translate(direction * movementSpeed * Time.fixedDeltaTime);
 
-        Flip(direction.x > 0 ? true : false);
+        Flip(direction.x > 0 ? true : false,this.transform);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

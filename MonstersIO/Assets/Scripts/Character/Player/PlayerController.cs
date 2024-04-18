@@ -10,16 +10,16 @@ public class PlayerController : CharacterBehaviour
     private FloatingJoystick joystick;
     public List<Skill> skills;
     public List<Transform> spawnPoses;
-    public Healthbar healthbarPrefab;
     public Healthbar healthbar;
+    public Transform playerSprite;
 
     private void Start()
     {
         SetUpComponents(this);
-        healthbar = Instantiate(healthbarPrefab,transform);
         healthbar.Init(this);
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FloatingJoystick>();
     }
+
 
     private void Update()
     {
@@ -35,11 +35,9 @@ public class PlayerController : CharacterBehaviour
         return spawnPoses[index];
     }
 
-
     private void FixedUpdate()
     {
         CharacterMovement();
-        //healthbar.transform.position = transform.position + healthbar.offset;
     }
 
 
@@ -70,7 +68,7 @@ public class PlayerController : CharacterBehaviour
             anim.SetBool("isMoving", false);
         }
 
-        Flip(direction.x > 0 ? true : false);
+        Flip(direction.x > 0 ? true : false,playerSprite.transform);
     }
 
 

@@ -21,17 +21,16 @@ public abstract class CharacterBehaviour : MonoBehaviour
     {
         health = _character.GetComponent<Health>();
         rb = _character.GetComponent<Rigidbody2D>();
-        anim = _character.GetComponent<Animator>();
-
+        anim = (characterConfig.type == CharacterType.PLAYER) ? GetComponentInChildren<Animator>() : _character.GetComponent<Animator>();
         movementSpeed = _character.characterConfig.movementSpeed;
         health.hp = _character.characterConfig.hp;
         health.listener = CharacterHealthListener;
     }
 
-    protected void Flip(bool _bool)
+    protected void Flip(bool _bool,Transform _transform)
     {
-        float xScale = _bool ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x);
-        transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
+        float xScale = _bool ? -Mathf.Abs(_transform.localScale.x) : Mathf.Abs(_transform.localScale.x);
+        _transform.localScale = new Vector3(xScale, _transform.localScale.y, _transform.localScale.z);
     }
 
     public virtual void CharacterHealthListener(bool _isdead, int _damage)

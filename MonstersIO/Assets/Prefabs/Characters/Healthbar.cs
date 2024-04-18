@@ -7,16 +7,12 @@ public class Healthbar : MonoBehaviour
 {
     public Slider slider;
     public PlayerController player;
-    public Vector3 offset;
-    private bool canFollow;
 
     public void Init(PlayerController owner)
     {
         player = owner;
-        transform.parent = null;
         SetMaxHealth(player.health.hp);
         UpdateHealthbar(player.health.hp);
-        canFollow = true;
     }
 
     public void SetMaxHealth(int _amount)
@@ -28,10 +24,4 @@ public class Healthbar : MonoBehaviour
     {
         slider.value = _amount;
     }
-
-    private void Update()
-    {
-        if (canFollow) { transform.position = player.transform.position + offset; }
-    }
-
 }
