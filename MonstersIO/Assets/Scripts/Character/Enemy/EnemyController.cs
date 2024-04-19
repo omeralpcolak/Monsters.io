@@ -47,7 +47,7 @@ public class EnemyController : CharacterBehaviour
         {
             other.GetComponent<Health>().TakeDamage(10);
             health.TakeDamage(health.hp);
-            enemyGroup.totalCount--;
+            enemyGroup.health--;
             enemyBase.CheckHealth();
         }
     }

@@ -10,6 +10,13 @@ public class EnemyGroup
     public float cooldown;
     public int totalCount;
     public int currentCount;
+    [HideInInspector]public int health;
+
+
+    public void SetHealth()
+    {
+        health = totalCount;
+    }
 
     public void Spawn(Transform _transform, EnemyBase enemyBase)
     {
@@ -30,20 +37,26 @@ public class EnemyBase
     public GameObject destroyEffect;
     public int groupIndex;
     public EnemyGroup CurrentEnemyGroup => enemyGroups[groupIndex];
-    public int Health => enemyGroups.Sum(x => x.totalCount);
+    public int Health => enemyGroups.Sum(x => x.health);
 
     public void CheckHealth()
     {
-        Debug.Log(Health);
         if(Health <= 0)
         {
+            GameObject.Instantiate(destroyEffect, enemyBasePrefab.position, Quaternion.identity);
             GameObject.Destroy(enemyBasePrefab.gameObject);
         }
     }
 
+    public void SetHealthOfTheGroups()
+    {
+        enemyGroups.ForEach(x => x.SetHealth());
+    }
+
     public IEnumerator Check()
     {
-        while (0 < CurrentEnemyGroup.totalCount && GameSceneManager.instance.GameStart)
+
+        while (CurrentEnemyGroup.currentCount <= CurrentEnemyGroup.totalCount && GameSceneManager.instance.GameStart)
         {
             CurrentEnemyGroup.Spawn(enemyBasePrefab,this);
             CurrentEnemyGroup.currentCount++;
@@ -52,6 +65,7 @@ public class EnemyBase
            if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
            {
                 CurrentEnemyGroup.currentCount = 0;
+                CurrentEnemyGroup.totalCount = 0;
 
                 if(CurrentEnemyGroup == enemyGroups.Last())
                 {
@@ -74,6 +88,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        enemyBases.ForEach(x => x.SetHealthOfTheGroups());
         enemyBases.ForEach(x => StartCoroutine(x.Check()));
     }
 
