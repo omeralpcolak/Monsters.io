@@ -17,7 +17,7 @@ public class EnemyGroup
         enemy.enemyBase = OwnerBase(enemyBase);
         enemy.enemyGroup = OwnerGroup(this);
     }
-
+    
     private EnemyBase OwnerBase(EnemyBase enemyBase) { return enemyBase; }
     private EnemyGroup OwnerGroup(EnemyGroup enemyGroup) { return enemyGroup; }
 }
@@ -27,6 +27,7 @@ public class EnemyBase
 {
     public List<EnemyGroup> enemyGroups;
     public Transform enemyBasePrefab;
+    public GameObject destroyEffect;
     public int groupIndex;
     public EnemyGroup CurrentEnemyGroup => enemyGroups[groupIndex];
     public int Health => enemyGroups.Sum(x => x.totalCount);
@@ -36,7 +37,7 @@ public class EnemyBase
         Debug.Log(Health);
         if(Health <= 0)
         {
-            //Destory base;
+            GameObject.Destroy(enemyBasePrefab.gameObject);
         }
     }
 
@@ -48,11 +49,19 @@ public class EnemyBase
             CurrentEnemyGroup.currentCount++;
             yield return new WaitForSeconds(CurrentEnemyGroup.cooldown);
 
-           /*if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
+           if(CurrentEnemyGroup.currentCount == CurrentEnemyGroup.totalCount)
            {
-               CurrentEnemyGroup.currentCount = 0;
-               groupIndex = (CurrentEnemyGroup == enemyGroups.Last()) ? 0 : groupIndex + 1;
-           }*/
+                CurrentEnemyGroup.currentCount = 0;
+
+                if(CurrentEnemyGroup == enemyGroups.Last())
+                {
+                    break;
+                }
+                else
+                {
+                    groupIndex++;
+                }
+           }
         }
     }
     
