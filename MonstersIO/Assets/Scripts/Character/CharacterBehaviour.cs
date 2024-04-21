@@ -38,15 +38,14 @@ public abstract class CharacterBehaviour : MonoBehaviour
         if (!_isdead)
         {
             Instantiate(hurtEffect, transform);
-            Debug.Log(name  + "is taking damage: " + _damage);
         }
         else
         {
-            Instantiate(deathEffect, transform);
-            Destroy(gameObject);
-            Debug.Log(name + " is dead!");
+            CharacterDeath();
         }
     }
+
+    public abstract void CharacterDeath();
 
     protected void SelfDestruction()
     {

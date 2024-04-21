@@ -15,7 +15,6 @@ public class GameSceneManager : MonoBehaviour
     //public static Action<GameState> OnGameStateChange;
     public PlayerController player;
     public PlayerController playerPrefab;
-
     private void Awake()
     {
         instance = this;

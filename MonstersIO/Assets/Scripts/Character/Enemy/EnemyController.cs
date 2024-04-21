@@ -47,8 +47,18 @@ public class EnemyController : CharacterBehaviour
         {
             other.GetComponent<Health>().TakeDamage(10);
             health.TakeDamage(health.hp);
-            enemyGroup.health--;
-            enemyBase.CheckHealth();
         }
+    }
+
+    public override void CharacterHealthListener(bool _isdead, int _damage)
+    {
+        base.CharacterHealthListener(_isdead, _damage);
+    }
+
+    public override void CharacterDeath()
+    {
+        enemyGroup.health--;
+        enemyBase.CheckHealth();
+        //*GameSavings.Coin++;
     }
 }

@@ -53,6 +53,13 @@ public class PlayerController : CharacterBehaviour
         healthbar.UpdateHealthbar(health.hp);
     }
 
+    public override void CharacterDeath()
+    {
+        GameSceneManager.instance.ChangeGameState(GameState.LOSE);
+        Instantiate(deathEffect, transform);
+        Destroy(gameObject);
+    }
+
     public override void CharacterMovement()
     {
         Vector2 direction = joystick.Direction;
@@ -71,9 +78,4 @@ public class PlayerController : CharacterBehaviour
         Flip(direction.x > 0 ? true : false,playerSprite.transform);
     }
 
-
-    private void OnDestroy()
-    {
-        Destroy(healthbar.gameObject);
-    }
 }

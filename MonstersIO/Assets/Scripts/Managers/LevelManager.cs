@@ -21,12 +21,9 @@ public class EnemyGroup
     public void Spawn(Transform _transform, EnemyBase enemyBase)
     {
         var enemy = GameObject.Instantiate(enemyPrefab,_transform.position,Quaternion.identity);
-        enemy.enemyBase = OwnerBase(enemyBase);
-        enemy.enemyGroup = OwnerGroup(this);
+        enemy.enemyBase = enemyBase;
+        enemy.enemyGroup = this;
     }
-    
-    private EnemyBase OwnerBase(EnemyBase enemyBase) { return enemyBase; }
-    private EnemyGroup OwnerGroup(EnemyGroup enemyGroup) { return enemyGroup; }
 }
 
 [System.Serializable]
