@@ -297,6 +297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTxt: {fileID: 8240537700787643148}
   dissolveTime: 1
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0.48220402, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0.91010165, a: 0}
 --- !u!225 &460902555513903167
 CanvasGroup:
   m_ObjectHideFlags: 0
