@@ -16,6 +16,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
 
     public abstract void CharacterMovement();
     public abstract void CharacterAttack();
+    public abstract void CharacterDeath();
 
     public void SetUpComponents(CharacterBehaviour _character)
     {
@@ -38,14 +39,13 @@ public abstract class CharacterBehaviour : MonoBehaviour
         if (!_isdead)
         {
             Instantiate(hurtEffect, transform);
+            
         }
         else
         {
             CharacterDeath();
         }
     }
-
-    public abstract void CharacterDeath();
 
     protected void SelfDestruction()
     {

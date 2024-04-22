@@ -54,6 +54,7 @@ MonoBehaviour:
   movementSpeed: 0
   hurtEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
   deathEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
+  damageUIPrefab: {fileID: 5077110060462661402, guid: a61c0eb5879b84e08b74c4d09f349b7b, type: 3}
   skills: []
   spawnPoses:
   - {fileID: 5150360835081317027}
