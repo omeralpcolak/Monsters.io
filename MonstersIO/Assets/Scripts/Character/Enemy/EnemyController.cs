@@ -62,7 +62,7 @@ public class EnemyController : CharacterBehaviour
     {
         enemyGroup.health--;
         enemyBase.CheckHealth();
-        Instantiate(deathEffect, transform);
+        Instantiate(deathEffect, transform.position,Quaternion.identity);
         Destroy(gameObject);
         //*GameSavings.Coin++;
     }

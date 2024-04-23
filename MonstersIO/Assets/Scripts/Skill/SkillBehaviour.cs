@@ -22,18 +22,17 @@ public class SkillBehaviour : MonoBehaviour
 
     }
 
-    public virtual void OnTriggerWithEnemy(Collider2D other)
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-
             OnTriggerWithEnemy(other);
         }
+    }
+
+    public virtual void OnTriggerWithEnemy(Collider2D other)
+    {
+        other.GetComponent<Health>().TakeDamage(damage);
     }
 
 

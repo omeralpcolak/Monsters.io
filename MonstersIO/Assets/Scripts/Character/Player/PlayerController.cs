@@ -23,10 +23,7 @@ public class PlayerController : CharacterBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            skills.ForEach(x => x.Use(this,SetPos(x.spawnPosName)));
-        }
+        skills.ForEach(x => x.Use(this, SetPos(x.spawnPosName)));
     }
 
     private Transform SetPos(string posName)

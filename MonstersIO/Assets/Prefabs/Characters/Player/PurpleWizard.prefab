@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 7564421821731618722}
   - {fileID: 5150360834673538808}
+  - {fileID: 867715530874816872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6915835444610394249
@@ -54,11 +55,10 @@ MonoBehaviour:
   movementSpeed: 0
   hurtEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
   deathEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
-  damageUIPrefab: {fileID: 5077110060462661402, guid: a61c0eb5879b84e08b74c4d09f349b7b, type: 3}
-  skills: []
+  skills:
+  - {fileID: 11400000, guid: 60208f03f42d7484693279784be17ce8, type: 2}
   spawnPoses:
-  - {fileID: 5150360835081317027}
-  - {fileID: 5150360835966320221}
+  - {fileID: 867715530874816872}
   healthbar: {fileID: 2449540391582753643}
   playerSprite: {fileID: 5150360834673538808}
 --- !u!114 &4398936216188858932
@@ -136,6 +136,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &5317959059684527030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 867715530874816872}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &867715530874816872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317959059684527030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8576657022104080276}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6406829301919222692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,15 +308,5 @@ PrefabInstance:
 --- !u!4 &5150360834673538808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4533046827902932076, guid: 38d1b8d56cd9d64438e48e07a5870cab, type: 3}
-  m_PrefabInstance: {fileID: 8759888262670148244}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5150360835081317027 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4533046828325292087, guid: 38d1b8d56cd9d64438e48e07a5870cab, type: 3}
-  m_PrefabInstance: {fileID: 8759888262670148244}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5150360835966320221 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4533046829193518281, guid: 38d1b8d56cd9d64438e48e07a5870cab, type: 3}
   m_PrefabInstance: {fileID: 8759888262670148244}
   m_PrefabAsset: {fileID: 0}
