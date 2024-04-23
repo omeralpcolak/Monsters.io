@@ -57,6 +57,7 @@ MonoBehaviour:
   deathEffect: {fileID: 4729874762753836109, guid: f91be0e77f7614100a8dec592f764408, type: 3}
   skills:
   - {fileID: 11400000, guid: 60208f03f42d7484693279784be17ce8, type: 2}
+  - {fileID: 11400000, guid: 6a40effb9cf8d4430ac37077364b4f58, type: 2}
   spawnPoses:
   - {fileID: 867715530874816872}
   healthbar: {fileID: 2449540391582753643}

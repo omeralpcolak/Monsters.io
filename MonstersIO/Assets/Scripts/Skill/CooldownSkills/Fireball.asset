@@ -16,6 +16,6 @@ MonoBehaviour:
     title: Fireball
     damage: 10
     size: {x: 0, y: 0, z: 0}
-    cooldown: 0.2
-  skillBehaviour: {fileID: 3843537222122922973, guid: db86730df53dc4b5dafe7187f98a3c94, type: 3}
+    cooldown: 1
+  skillBehaviour: {fileID: 6087280574756549740, guid: 029bd172888bf47a8a5ad3dc1f63a76a, type: 3}
   spawnPosName: Body

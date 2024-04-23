@@ -4,60 +4,24 @@ using UnityEngine;
 
 public class FireballBehaviour : SkillBehaviour
 {
-    public float cooldown;
     private Vector2 direction;
+    private Rigidbody2D rb;
     private int speed = 5;
 
     public override void Init(SkillConfig _skillConfig)
     {
         base.Init(_skillConfig);
-        cooldown = _skillConfig.cooldown;
     }
 
     private void Start()
     {
-        transform.parent = null;
+        rb = GetComponent<Rigidbody2D>();
         direction = Random.insideUnitCircle.normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-
-    private void Update()
-    {
-        Behaviour();   
+        Behaviour();
     }
 
     public override void Behaviour()
     {
-        Debug.Log("Gidiyorr");
-        transform.Translate(direction * Time.fixedDeltaTime * speed);
+        rb.velocity = direction * speed;
     }
-
-    public override void OnTriggerWithEnemy(Collider2D other)
-    {
-        other.GetComponent<Health>().TakeDamage(damage);
-        Debug.Log(name + "is triggered with enemy");
-        //Destroy(gameObject);
-    }
-
-
-    /*private GameObject FindNearestEnemy()
-    {
-        Vector2 currentPos = transform.position;
-        GameObject closestEnemy = null;
-        float minDistance = Mathf.Infinity;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach(GameObject enemy in enemies)
-        {
-            float distance = Vector2.Distance(enemy.transform.position, currentPos);
-
-            if(distance < minDistance)
-            {
-                minDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
-        return closestEnemy;
-    }*/
 }

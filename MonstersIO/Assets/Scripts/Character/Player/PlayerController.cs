@@ -23,7 +23,7 @@ public class PlayerController : CharacterBehaviour
 
     private void Update()
     {
-        skills.ForEach(x => x.Use(this, SetPos(x.spawnPosName)));
+        CharacterAttack();
     }
 
     private Transform SetPos(string posName)
@@ -40,7 +40,7 @@ public class PlayerController : CharacterBehaviour
 
     public override void CharacterAttack()
     {
-        throw new System.NotImplementedException();
+        skills.ForEach(x => x.Use(this, SetPos(x.spawnPosName)));
     }
 
 

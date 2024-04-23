@@ -24,4 +24,9 @@ public class CooldownSkill : Skill
         yield return new WaitForSeconds(duration);
         isOnCooldown = false;
     }
+
+    private void OnEnable()
+    {
+        isOnCooldown = false;
+    }
 }
