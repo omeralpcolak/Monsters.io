@@ -94672,7 +94672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286874445}
-  - component: {fileID: 286874444}
+  - component: {fileID: 286874446}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -94680,47 +94680,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &286874444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286874443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd9fab5fbe044752b25cea4e3d16d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBases:
-  - enemyGroups:
-    - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
-      cooldown: 1
-      totalCount: 2
-      currentCount: 0
-      health: 0
-    - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
-      cooldown: 0.5
-      totalCount: 2
-      currentCount: 0
-      health: 0
-    enemyBasePrefab: {fileID: 1215670058}
-    destroyEffect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-    groupIndex: 0
-  - enemyGroups:
-    - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
-      cooldown: 1
-      totalCount: 3
-      currentCount: 0
-      health: 0
-    - enemyPrefab: {fileID: 2784983271263037117, guid: 4ae7c01c55939423e96b5059f2cffc3a, type: 3}
-      cooldown: 0.5
-      totalCount: 3
-      currentCount: 0
-      health: 0
-    enemyBasePrefab: {fileID: 1722534021}
-    destroyEffect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-    groupIndex: 0
 --- !u!4 &286874445
 Transform:
   m_ObjectHideFlags: 0
@@ -94738,6 +94697,48 @@ Transform:
   - {fileID: 1722534021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &286874446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286874443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd9fab5fbe044752b25cea4e3d16d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBases:
+  - enemyGroups:
+    - enemyPrefab: {fileID: 0}
+      cooldown: 0
+      totalCount: 0
+      currentCount: 0
+      health: 0
+    - enemyPrefab: {fileID: 0}
+      cooldown: 0
+      totalCount: 0
+      currentCount: 0
+      health: 0
+    enemyBasePrefab: {fileID: 0}
+    destroyEffect: {fileID: 0}
+    groupIndex: 0
+  - enemyGroups:
+    - enemyPrefab: {fileID: 0}
+      cooldown: 0
+      totalCount: 0
+      currentCount: 0
+      health: 0
+    - enemyPrefab: {fileID: 0}
+      cooldown: 0
+      totalCount: 0
+      currentCount: 0
+      health: 0
+    enemyBasePrefab: {fileID: 0}
+    destroyEffect: {fileID: 0}
+    groupIndex: 0
+  isItBossLevel: 0
 --- !u!1 &489115049
 GameObject:
   m_ObjectHideFlags: 0

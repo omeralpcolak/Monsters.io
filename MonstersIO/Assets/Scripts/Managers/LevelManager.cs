@@ -78,15 +78,47 @@ public class EnemyBase
     
 }
 
+[System.Serializable]
+public class Boss
+{
+    public List<EnemyGroup> bossMinions;
+    public BossController bossPrefab;
+
+
+    public void SpawnBossAndMinions(Transform _bossPos)
+    {
+        var boss = GameObject.Instantiate(bossPrefab, _bossPos.position, Quaternion.identity);
+        for(int i = 0; i<= bossMinions.Count; i++)
+        {
+            for(int x = 0; x<bossMinions[i].totalCount; x++)
+            {
+                GameObject.Instantiate(bossMinions[i].enemyPrefab, boss.transform.position, Quaternion.identity);
+            }
+        }
+    }
+}
+
 public class LevelManager : MonoBehaviour
 {
     public List<EnemyBase> enemyBases;
+    public Boss boss;
+    public bool isItBossLevel;
+    public Transform bossSpawnPos;
 
 
     void Start()
     {
-        enemyBases.ForEach(x => x.SetHealthOfTheGroups());
-        enemyBases.ForEach(x => StartCoroutine(x.Check()));
+        if (!isItBossLevel)
+        {
+            enemyBases.ForEach(x => x.SetHealthOfTheGroups());
+            enemyBases.ForEach(x => StartCoroutine(x.Check()));
+        }
+
+        if (isItBossLevel)
+        {
+            boss.SpawnBossAndMinions(bossSpawnPos);
+        }
+        
     }
 
 }
