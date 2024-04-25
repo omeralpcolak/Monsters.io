@@ -7,6 +7,7 @@ public class EnemyController : CharacterBehaviour
 {
 
     public Transform player;
+    public Transform enemySprite;
     [HideInInspector] public EnemyBase enemyBase;
     [HideInInspector] public EnemyGroup enemyGroup;
     public DamageUI damageUIPrefab;
@@ -39,7 +40,7 @@ public class EnemyController : CharacterBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         transform.Translate(direction * movementSpeed * Time.fixedDeltaTime);
 
-        Flip(direction.x > 0 ? true : false,this.transform);
+        Flip(direction.x > 0 ? true : false,enemySprite);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

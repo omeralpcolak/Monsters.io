@@ -101,8 +101,8 @@ public class Boss
 public class LevelManager : MonoBehaviour
 {
     public List<EnemyBase> enemyBases;
-    public Boss boss;
     public bool isItBossLevel;
+    public Boss boss;
     public Transform bossSpawnPos;
 
 

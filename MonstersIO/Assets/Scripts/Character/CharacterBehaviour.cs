@@ -22,7 +22,8 @@ public abstract class CharacterBehaviour : MonoBehaviour
     {
         health = _character.GetComponent<Health>();
         rb = _character.GetComponent<Rigidbody2D>();
-        anim = (characterConfig.type == CharacterType.PLAYER) ? GetComponentInChildren<Animator>() : _character.GetComponent<Animator>();
+        //anim = (characterConfig.type == CharacterType.PLAYER) ? GetComponentInChildren<Animator>() : _character.GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         movementSpeed = _character.characterConfig.movementSpeed;
         health.hp = _character.characterConfig.hp;
         health.listener = CharacterHealthListener;
