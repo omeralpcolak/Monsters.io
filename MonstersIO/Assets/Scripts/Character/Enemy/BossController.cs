@@ -17,7 +17,7 @@ public class BossController : CharacterBehaviour
 
     public override void CharacterDeath()
     {
-        
+        Debug.Log("Boss is dead");
     }
 
     public override void CharacterMovement()
@@ -28,10 +28,16 @@ public class BossController : CharacterBehaviour
         Flip(direction.x > 0 ? true : false, bossSprite);
     }
 
-    // Start is called before the first frame update
+    public override void CharacterHealthListener(bool _isdead, int _damage)
+    {
+        base.CharacterHealthListener(_isdead, _damage);
+        healthbar.UpdateHealthbar(health.hp);
+    }
+
     void Start()
     {
         SetUpComponents(this);
+        healthbar.Init(this);
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -44,7 +50,6 @@ public class BossController : CharacterBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (player)

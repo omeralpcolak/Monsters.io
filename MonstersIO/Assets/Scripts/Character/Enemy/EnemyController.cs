@@ -26,7 +26,7 @@ public class EnemyController : CharacterBehaviour
         }
         else
         {
-            SelfDestruction();
+            Destroy(gameObject);
         }
     }
 
@@ -61,6 +61,7 @@ public class EnemyController : CharacterBehaviour
 
     public override void CharacterDeath()
     {
+
         enemyGroup.health--;
         enemyBase.CheckHealth();
         Instantiate(deathEffect, transform.position,Quaternion.identity);
