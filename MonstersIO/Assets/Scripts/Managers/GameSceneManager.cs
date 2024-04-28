@@ -6,22 +6,27 @@ using System;
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager instance;
+    public LevelManager levelManager;
     public GameState State;
     [SerializeField]private bool _gameStart;
     public bool GameStart
     {
         get { return _gameStart; }
     }
-    //public static Action<GameState> OnGameStateChange;
+
     public PlayerController player;
     public PlayerController playerPrefab;
     private void Awake()
     {
         instance = this;
+        //ChangeGameState(GameState.START);
+    }
+
+    private void Start()
+    {
         ChangeGameState(GameState.START);
     }
 
-    
     public void ChangeGameState(GameState newState)
     {
         State = newState;

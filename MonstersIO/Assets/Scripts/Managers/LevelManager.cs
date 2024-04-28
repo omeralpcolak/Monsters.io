@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
+using TMPro;
+using DG.Tweening;
 
 [System.Serializable]
 public class EnemyGroup
@@ -94,23 +97,33 @@ public class LevelManager : MonoBehaviour
     public bool isItBossLevel;
     public Boss boss;
     public Transform bossSpawnPos;
+    public GameObject levelTxtPrefab;
+    public string bossLevelText;
+    public string enemyLevelText;
 
 
-    void Start()
+    private void Start()
     {
         StartLevel(isItBossLevel);
     }
 
 
-    private void StartLevel(bool _isItBossLevel)
+    public void StartLevel(bool _isItBossLevel)
     {
-        if (_isItBossLevel)
-        {
-            boss.SpawnBossAndMinions(bossSpawnPos);
-        }
+        GameObject levelInfoTxt = Instantiate(levelTxtPrefab, Vector3.zero, Quaternion.identity);
+        levelInfoTxt.GetComponentInChildren<TMP_Text>().text = _isItBossLevel ? bossLevelText : enemyLevelText;
+        levelInfoTxt.GetComponent<CanvasGroup>().DOFade(0, 2f).OnComplete(() =>
+         {
+             if (_isItBossLevel)
+             {
+                 boss.SpawnBossAndMinions(bossSpawnPos);
+             }
 
-        enemyBases.ForEach(x => x.SetHealthOfTheGroups());
-        enemyBases.ForEach(x => StartCoroutine(x.Check()));
+             enemyBases.ForEach(x => x.SetHealthOfTheGroups());
+             enemyBases.ForEach(x => StartCoroutine(x.Check()));
+         });
+
+        
 
     }
 

@@ -54,8 +54,12 @@ public class EnemyController : CharacterBehaviour
 
     public override void CharacterHealthListener(bool _isdead, int _damage)
     {
-        DamageUI damageUI = Instantiate(damageUIPrefab, transform.position, Quaternion.identity);
-        damageUI.SetValue(_damage);
+        if (!_isdead)
+        {
+            DamageUI damageUI = Instantiate(damageUIPrefab, transform.position, Quaternion.identity);
+            damageUI.SetValue(_damage);
+        }
+        
         base.CharacterHealthListener(_isdead, _damage);
     }
 
